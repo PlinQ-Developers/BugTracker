@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createBugFragment_rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    tools:context=".ui.ui_create_report.CreateBugFragment">
+
+    <RelativeLayout
+        android:id="@+id/createBugFragment_rl_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/createBugFragment_tv_saveNewBug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:text="Create"
+            android:textAllCaps="true"
+            android:textColor="@color/appTextPrimary"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/createBugFragment_iv_closeWindow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_close_window" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/createBugFragment_sv_formContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/createBugFragment_rl_toolbar"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/createBugFragment_rl_scrollableContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:id="@+id/createBugFragment_rl_titleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/createBugFragment_tv_titleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/createBugFragment_til_bugName"
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/createBugFragment_tv_titleName"
+                    android:layout_marginTop="10dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/createBugFragment_tet_bugName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/drawable_stats_bg"
+                        android:hint="Give us a name..."
+                        android:maxLines="2" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/createBugFragment_rl_classContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/createBugFragment_rl_titleContainer"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:id="@+id/createBugFragment_tv_className"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Classification" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/createBugFragment_til_bugClass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/createBugFragment_tv_className"
+                    android:layout_marginTop="10dp"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    app:hintEnabled="false">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/createBugFragment_tet_bugClass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:background="@drawable/drawable_stats_bg"
+                        android:hint="Classify your issue"
+                        android:maxLines="2" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/createBugFragment_rl_descriptionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/createBugFragment_rl_classContainer"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:id="@+id/createBugFragment_tv_descriptionName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bug description" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/createBugFragment_til_descriptionName"
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/createBugFragment_tv_descriptionName"
+                    android:layout_marginTop="10dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/createBugFragment_tet_descriptionName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/drawable_stats_bg"
+                        android:gravity="start"
+                        android:inputType="textMultiLine"
+                        android:hint="Can you describe what happened or what you were doing..."
+                        android:maxLines="2"
+                        android:minLines="10" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/createBugFragment_rl_attachmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/drawable_stats_bg"
+                android:layout_below="@+id/createBugFragment_rl_descriptionContainer"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:text="Add attachment"
+                    android:layout_centerHorizontal="true"
+                    android:padding="30dp"
+                    android:id="@+id/createBugFragment_tv_addAttachment"
+                    android:drawablePadding="10dp"
+                    app:drawableStartCompat="@drawable/ic_file_upload" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/bugDashboardFragment">
+
+    <fragment
+        android:id="@+id/bugDashboardFragment"
+        android:name="com.plinqdevelopers.dartplay.ui.ui_dashboard.BugDashboardFragment"
+        android:label="fragment_bug_dashboard"
+        tools:layout="@layout/fragment_bug_dashboard" >
+        <action
+            android:id="@+id/action_bugDashboardFragment_to_createBugFragment"
+            app:destination="@id/createBugFragment" />
+        <action
+            android:id="@+id/action_bugDashboardFragment_to_bugReportsFragment"
+            app:destination="@id/bugReportsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createBugFragment"
+        android:name="com.plinqdevelopers.dartplay.ui.ui_create_report.CreateBugFragment"
+        android:label="fragment_create_bug"
+        tools:layout="@layout/fragment_create_bug" />
+    <fragment
+        android:id="@+id/bugReportsFragment"
+        android:name="com.plinqdevelopers.dartplay.ui.ui_reports.BugReportsFragment"
+        android:label="fragment_bug_reports"
+        tools:layout="@layout/fragment_bug_reports" >
+        <action
+            android:id="@+id/action_bugReportsFragment_to_bugReportDetailsFragment"
+            app:destination="@id/bugReportDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bugReportDetailsFragment"
+        android:name="com.plinqdevelopers.dartplay.ui.ui_report_details.BugReportDetailsFragment"
+        android:label="fragment_bug_report_details"
+        tools:layout="@layout/fragment_bug_report_details" />
+</navigation>

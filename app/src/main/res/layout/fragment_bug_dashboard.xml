@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bugDashboardFragment_rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="@color/app_background"
+    tools:context=".ui.ui_dashboard.BugDashboardFragment">
+
+    <RelativeLayout
+        android:id="@+id/bugDashboardFragment_rl_bugStatsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:elevation="0.5dp"
+        android:background="@drawable/drawable_stats_bg">
+
+        <RelativeLayout
+            android:id="@+id/bugDashboardFragment_rl_criticalBugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:id="@+id/bugDashboardFragment_iv_criticalBugs"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:background="@drawable/bug_icon_bg"
+                android:contentDescription="@string/bugDashboardFragment_iv_criticalBugsDescription"
+                android:src="@drawable/ic_bug" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_criticalBugName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_criticalBugs"
+                android:text="@string/bugDashboardFragment_tv_criticalBugsName"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_criticalBugValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:text="40%" />
+
+            <ProgressBar
+                android:id="@+id/bugDashboardFragment_pb_criticalBugsProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugDashboardFragment_tv_criticalBugName"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_criticalBugs"
+                android:progress="40" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bugDashboardFragment_rl_minorBugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bugDashboardFragment_rl_criticalBugs"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/bugDashboardFragment_iv_minorBugs"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:background="@drawable/bug_icon_bg"
+                android:contentDescription="@string/bugDashboardFragment_iv_minorBugsDescription"
+                android:src="@drawable/ic_bug_minor" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_minorBugName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_minorBugs"
+                android:text="@string/bugDashboardFragment_tv_minorBugsName"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_minorBugValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:text="73%" />
+
+            <ProgressBar
+                android:id="@+id/bugDashboardFragment_pb_minorBugsProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugDashboardFragment_tv_minorBugName"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_minorBugs"
+                android:progress="73" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bugDashboardFragment_rl_cosmeticBugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bugDashboardFragment_rl_minorBugs"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/bugDashboardFragment_iv_cosmeticBugs"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:background="@drawable/bug_icon_bg"
+                android:contentDescription="@string/bugDashboardFragment_iv_cosmeticBugDescription"
+                android:src="@drawable/ic_bug_cosmetic" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_cosmeticBugName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_cosmeticBugs"
+                android:text="@string/bugDashboardFragment_tv_cosmeticBugsName"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_cosmeticBugValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:text="36%" />
+
+            <ProgressBar
+                android:id="@+id/bugDashboardFragment_pb_cosmeticBugsProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugDashboardFragment_tv_cosmeticBugName"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_cosmeticBugs"
+                android:progress="36" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bugDashboardFragment_rl_otherBugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bugDashboardFragment_rl_cosmeticBugs"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp">
+
+            <ImageView
+                android:id="@+id/bugDashboardFragment_iv_otherBugs"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:background="@drawable/bug_icon_bg"
+                android:contentDescription="@string/bugDashboardFragment_iv_otherBugsDescription"
+                android:src="@drawable/ic_bug_other" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_otherBugName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_otherBugs"
+                android:text="@string/bugDashboardFragment_tv_otherBugsName"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_otherBugValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:text="57%" />
+
+            <ProgressBar
+                android:id="@+id/bugDashboardFragment_pb_otherBugsProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugDashboardFragment_tv_otherBugName"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/bugDashboardFragment_iv_otherBugs"
+                android:progress="57" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bugDashboardFragment_rl_latestBugContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bugDashboardFragment_rl_bugStatsContainer"
+        android:layout_marginTop="30dp">
+
+        <RelativeLayout
+            android:id="@+id/bugDashboardFragment_rl_bugListHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/bugDashboardFragment_tv_recentBugTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recent reports"
+                android:textColor="@color/appTextPrimary"
+                android:textSize="22sp"
+                android:textStyle="normal"
+                app:drawableEndCompat="@drawable/ic_arrow_next" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bugDashboardFragment_rv_topBugList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/bug_list_item"
+            android:layout_below="@+id/bugDashboardFragment_rl_bugListHeader"
+            android:layout_marginTop="20dp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bugDashboardFragment_fab_newBugBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_btn_add"
+        android:contentDescription="TODO" />
+
+</RelativeLayout>

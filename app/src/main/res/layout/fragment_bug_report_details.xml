@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    tools:context=".ui.ui_report_details.BugReportDetailsFragment">
+
+    <RelativeLayout
+        android:id="@+id/bugReportDetailsFragment_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/bugReportDetailsFragment_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_backspace" />
+
+        <TextView
+            android:id="@+id/bugReportDetailsFragment_tv_ticketNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/lato_black"
+            android:padding="10dp"
+            android:text="TICK-2832"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/bugReportDetailsFragment_iv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_more" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/bugReportDetailsFragment_scrollableContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bugReportDetailsFragment_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/bugReportDetailsFragment_rl_nestedScrollContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/bugItem_tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:layout_marginTop="15dp"
+                android:text="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                android:textSize="28sp" />
+
+            <RelativeLayout
+                android:id="@+id/bugItem_classContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/bugItem_tv_name">
+
+                <ImageView
+                    android:id="@+id/bugItem_iv_classIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/drawable_stats_bg"
+                    android:contentDescription="@string/bugDashboardFragment_iv_criticalBugsDescription"
+                    android:src="@drawable/ic_bug" />
+
+                <TextView
+                    android:id="@+id/bugItem_tv_bugReportedDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/bugItem_iv_classIcon"
+                    android:fontFamily="@font/lato_light"
+                    android:text="Mon Jan 3, 3023" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/bugItem_tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugItem_classContainer"
+                android:layout_marginTop="15dp"
+                android:background="@color/appColorSecondary"
+                android:fontFamily="@font/lato_bold"
+                android:padding="10dp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:text="PENDING"
+                android:textColor="@color/white" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugItem_tv_status"
+                android:layout_marginTop="25dp"
+                android:id="@+id/bugItem_rl_resolveContainer">
+
+                <LinearLayout
+                    android:id="@+id/bugItem_ll_acceptanceContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <TextView
+                        android:id="@+id/bugItem_tv_receivedTitle"
+                        android:fontFamily="@font/lato"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Accepted: " />
+
+                    <TextView
+                        android:id="@+id/bugItem_tv_receivedDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:fontFamily="@font/lato_bold"
+                        android:text="Tue May 23, 2023" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bugItem_ll_statusContainer"
+                    android:layout_below="@+id/bugItem_ll_acceptanceContainer"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <TextView
+                        android:id="@+id/bugItem_tv_statusTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/lato"
+                        android:text="Status: " />
+
+                    <TextView
+                        android:id="@+id/bugItem_tv_statusName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:fontFamily="@font/lato_bold"
+                        android:text="In development" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bugItem_ll_developerContainer"
+                    android:layout_below="@+id/bugItem_ll_statusContainer"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <TextView
+                        android:id="@+id/bugItem_tv_bugTitle"
+                        android:fontFamily="@font/lato"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Developer: " />
+
+                    <TextView
+                        android:id="@+id/bugItem_tv_devName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:fontFamily="@font/lato_bold"
+                        android:text="Jane Doe" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugItem_rl_resolveContainer"
+                android:layout_marginTop="40dp"
+                android:id="@+id/bugItem_rl_descriptionContainer">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Issue description"
+                    android:textSize="18sp"
+                    android:id="@+id/bugItem_tv_descriptionTitle" />
+
+                <TextView
+                    android:id="@+id/bugItem_tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bugItem_tv_descriptionTitle"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/lato"
+                    android:textSize="16sp"
+                    android:text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugItem_rl_descriptionContainer"
+                android:layout_marginTop="50dp"
+                android:id="@+id/bugItem_rl_attachmentContainer">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Attachments"
+                    android:textSize="18sp"
+                    android:id="@+id/bugItem_tv_attachmentsTitle" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/item_attachments"
+                    android:layout_below="@+id/bugItem_tv_attachmentsTitle" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
