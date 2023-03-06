@@ -11,36 +11,34 @@
     <RelativeLayout
         android:id="@+id/createBugFragment_rl_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/createBugFragment_tv_saveNewBug"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="5dp"
-            android:text="Create"
-            android:textAllCaps="true"
-            android:textColor="@color/appTextPrimary"
-            android:textSize="20sp" />
+        android:layout_height="?attr/actionBarSize">
 
         <ImageView
-            android:id="@+id/createBugFragment_iv_closeWindow"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/createBugFragment_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_close_window" />
+            android:padding="10dp"
+            android:src="@drawable/ic_backspace" />
+
+        <TextView
+            android:id="@+id/createBugFragment_tv_createTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/lato_black"
+            android:padding="10dp"
+            android:text="Create Report"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/createBugFragment_sv_formContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/createBugFragment_rl_toolbar"
+        android:layout_above="@+id/createBugFragment_btn_submitReport"
         android:padding="10dp">
 
         <RelativeLayout
@@ -59,6 +57,7 @@
                     android:id="@+id/createBugFragment_tv_titleName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
                     android:text="Title" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -76,6 +75,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/drawable_stats_bg"
                         android:hint="Give us a name..."
+                        android:textSize="18sp"
+                        android:fontFamily="@font/lato"
                         android:maxLines="2" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -94,6 +95,7 @@
                     android:id="@+id/createBugFragment_tv_className"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
                     android:text="Classification" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -110,6 +112,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"
+                        android:fontFamily="@font/lato"
+                        android:textSize="18sp"
                         android:background="@drawable/drawable_stats_bg"
                         android:hint="Classify your issue"
                         android:maxLines="2" />
@@ -130,6 +134,7 @@
                     android:id="@+id/createBugFragment_tv_descriptionName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
                     android:text="Bug description" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -148,6 +153,8 @@
                         android:background="@drawable/drawable_stats_bg"
                         android:gravity="start"
                         android:inputType="textMultiLine"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/lato"
                         android:hint="Can you describe what happened or what you were doing..."
                         android:maxLines="2"
                         android:minLines="10" />
@@ -172,6 +179,7 @@
                     android:text="Add attachment"
                     android:layout_centerHorizontal="true"
                     android:padding="30dp"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/createBugFragment_tv_addAttachment"
                     android:drawablePadding="10dp"
                     app:drawableStartCompat="@drawable/ic_file_upload" />
@@ -180,6 +188,19 @@
 
         </RelativeLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_stats_bg"
+        android:layout_margin="15dp"
+        android:text="Submit Report"
+        android:textColor="@color/white"
+        android:fontFamily="@font/lato_bold"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/createBugFragment_btn_submitReport"
+        android:textAllCaps="true"
+        app:backgroundTint="@color/appColorSecondaryVariant" />
 
 </RelativeLayout>

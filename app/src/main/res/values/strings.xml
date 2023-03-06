@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">dartplay</string>
+    <string name="app_name">Dartplay</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bugReportsFragment_tabItemText_allBugs">All</string>

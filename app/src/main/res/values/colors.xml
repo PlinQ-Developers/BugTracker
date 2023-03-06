@@ -14,4 +14,9 @@
     <color name="appColorSecondary">#24358c</color>
     <color name="appColorSecondaryVariant">#0c1e7f</color>
     <color name="appColorOnSecondary">#FAFAFA</color>
+
+    <color name="bugErrorRed">#8B0000</color>
+    <color name="bugErrorGreen">#006400</color>
+    <color name="bugErrorYellow">#B8860B</color>
+    <color name="bugErrorBlue">#000080</color>
 </resources>
