@@ -48,7 +48,7 @@ android {
 
 dependencies {
 
-    def kotlin = "1.9.0"
+    def kotlin = "1.8.0"
     implementation "androidx.core:core-ktx:$kotlin"
 
     def appCompat = "1.6.1"
@@ -76,7 +76,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitLibrary"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitLibrary"
 
-    def daggerHilt = "2.42"
+    def daggerHilt = "2.44"
     implementation "com.google.dagger:hilt-android:$daggerHilt"
     kapt "com.google.dagger:hilt-android-compiler:$daggerHilt"
 

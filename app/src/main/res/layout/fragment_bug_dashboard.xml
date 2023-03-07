@@ -6,13 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
-    android:padding="15dp"
     tools:context=".ui.ui_dashboard.BugDashboardFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/bugDashboardFragment_rl_loaderContainer"
+        android:background="@color/appColorSecondaryVariant">
+
+        <TextView
+            android:id="@+id/bugDashboardFragment_tv_loadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading content..."
+            android:padding="15dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/app_background"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/bugDashboardFragment_pb_loading"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/bugDashboardFragment_tv_loadingText"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/app_background"/>
+
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/bugDashboardFragment_rl_introContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bugDashboardFragment_rl_loaderContainer"
+        android:padding="15dp">
 
         <TextView
             android:id="@+id/bugDashboardFragment_tv_appName"
@@ -43,7 +73,8 @@
         <RelativeLayout
             android:id="@+id/bugDashboardFragment_nestedScrollContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="15dp">
 
             <RelativeLayout
                 android:id="@+id/bugDashboardFragment_rl_bugStatsContainer"
@@ -54,7 +85,6 @@
                     android:id="@+id/bugDashboardFragment_rl_criticalBugs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/drawable_stats_bg"
                     android:padding="15dp">
 
@@ -274,7 +304,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lato_bold"
                         android:text="Recent reports"
-                        android:textColor="@color/appTextPrimary"
+                        android:textColor="@color/bugErrorRed"
                         android:textSize="22sp"
                         app:drawableEndCompat="@drawable/ic_arrow_next" />
 
@@ -306,6 +336,7 @@
         android:contentDescription="TODO"
         android:focusable="true"
         android:src="@drawable/ic_btn_add"
-        app:backgroundTint="@color/bugErrorRed" />
+        app:tint="@color/app_background"
+        app:backgroundTint="@color/appColorSecondaryVariant" />
 
 </RelativeLayout>

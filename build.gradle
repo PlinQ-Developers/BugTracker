@@ -3,7 +3,7 @@ buildscript {
     ext {
         kotlin_version = '1.8.0'
         nav_safe_args = '2.5.3'
-        hilt_plugin = '2.42'
+        hilt_plugin = '2.44'
     }
     repositories {
         google()

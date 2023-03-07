@@ -33,7 +33,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/bug_list_item"
+        android:padding="10dp"
+        android:clipToPadding="false"
         android:layout_below="@+id/bugReportsFragment_tl_bugTabs"
-        android:id="@+id/bugReportsFragment_rv_bugsPager" />
+        android:id="@+id/bugReportsFragment_rv_bugsList" />
 
 </RelativeLayout>
