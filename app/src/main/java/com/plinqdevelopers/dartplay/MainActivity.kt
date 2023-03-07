@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         setupNavigation()
 
-        // loadSomeBugsToDB()
+        //loadSomeBugsToDB()
     }
 
     override fun onResume() {

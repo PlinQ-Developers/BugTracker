@@ -20,12 +20,22 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bugReportsFragment_tabItemText_resolvedBugs" />
+            android:text="@string/bugReportsFragment_tabItemText_criticalBugs" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bugReportsFragment_tabItemText_pendingBugs" />
+            android:text="@string/bugReportsFragment_tabItemText_minorBugs" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bugReportsFragment_tabItemText_cosmeticBugs" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bugReportsFragment_tabItemText_otherBugs" />
 
     </com.google.android.material.tabs.TabLayout>
 

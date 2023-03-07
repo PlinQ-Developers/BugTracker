@@ -1,6 +1,7 @@
 package com.plinqdevelopers.dartplay.models.local
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -36,7 +37,7 @@ data class BugDTO(
     @ColumnInfo(name = "bug_item_syncedValue")
     val bugIsAlreadySynced: Boolean = false,
 
-    @ColumnInfo(name = "bug_item_engineeringDTO")
+    @Embedded
     val bugEngineering: BugEngineeringDTO,
 
     @ColumnInfo(name = "bug_item_classificationDTO")

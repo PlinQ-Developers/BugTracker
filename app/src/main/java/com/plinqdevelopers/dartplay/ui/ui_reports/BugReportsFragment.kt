@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.tabs.TabLayout
 import com.plinqdevelopers.dartplay.R
 import com.plinqdevelopers.dartplay.adapters.BugListAdapter
 import com.plinqdevelopers.dartplay.databinding.FragmentBugReportsBinding
@@ -43,10 +44,30 @@ class BugReportsFragment : Fragment(), BugListAdapter.BugItemClickedListener {
     }
 
     private fun initButtons() {
-        binding.root.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_bugReportsFragment_to_bugReportDetailsFragment
-            )
+        binding.bugReportsFragmentTlBugTabs.apply {
+            addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab) {
+                    loadBugsBySelectedCategory(tab.position)
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab) {
+                    // Do something when the tab is unselected
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab) {
+                    // Do something when the tab is reselected
+                }
+            })
+        }
+    }
+
+    private fun loadBugsBySelectedCategory(category: Int) {
+        when(category) {
+            0 -> loadAllBugs()
+            1 -> loadBugsByCategory(classification = BugClassification.CRITICAL)
+            2 -> loadBugsByCategory(classification = BugClassification.MINOR)
+            3 -> loadBugsByCategory(classification = BugClassification.COSMETIC)
+            4 -> loadBugsByCategory(classification = BugClassification.OTHER)
         }
     }
 
@@ -60,6 +81,12 @@ class BugReportsFragment : Fragment(), BugListAdapter.BugItemClickedListener {
 
     private fun loadAllBugs() {
         reportsViewModel.bugItemsList.observe(requireActivity()) {
+            bugListAdapter.submitList(it)
+        }
+    }
+
+    private fun loadBugsByCategory(classification: BugClassification) {
+        reportsViewModel.filterListByClassification(classification).observe(requireActivity()) {
             bugListAdapter.submitList(it)
         }
     }

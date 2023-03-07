@@ -13,4 +13,8 @@
     <string name="bugDashboardFragment_tv_cosmeticBugsName">Cosmetic</string>
     <string name="bugDashboardFragment_tv_minorBugsName">Minor</string>
     <string name="bugDashboardFragment_tv_criticalBugsName">Critical</string>
+    <string name="bugReportsFragment_tabItemText_criticalBugs">Critical</string>
+    <string name="bugReportsFragment_tabItemText_minorBugs">Minor</string>
+    <string name="bugReportsFragment_tabItemText_cosmeticBugs">Cosmetic</string>
+    <string name="bugReportsFragment_tabItemText_otherBugs">Others</string>
 </resources>
