@@ -27,8 +27,8 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/lato_black"
             android:padding="10dp"
-            android:text="TICK-2832"
-            android:textSize="20sp" />
+            android:textColor="@color/appColorSecondaryVariant"
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/bugReportDetailsFragment_iv_more"
@@ -54,20 +54,32 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/bugItem_tv_name"
+                android:id="@+id/bugItem_tv_bugName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_bold"
                 android:layout_marginTop="15dp"
-                android:text="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                android:textSize="28sp" />
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/bugItem_tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bugItem_tv_bugName"
+                android:layout_marginTop="20dp"
+                android:background="@color/appColorSecondary"
+                android:fontFamily="@font/lato_bold"
+                android:padding="10dp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:textColor="@color/white" />
 
             <RelativeLayout
                 android:id="@+id/bugItem_classContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/bugItem_tv_name">
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/bugItem_tv_status">
 
                 <ImageView
                     android:id="@+id/bugItem_iv_classIcon"
@@ -75,8 +87,7 @@
                     android:layout_height="30dp"
                     android:padding="5dp"
                     android:background="@drawable/drawable_stats_bg"
-                    android:contentDescription="@string/bugDashboardFragment_iv_criticalBugsDescription"
-                    android:src="@drawable/ic_bug" />
+                    android:contentDescription="@string/bugDashboardFragment_iv_criticalBugsDescription" />
 
                 <TextView
                     android:id="@+id/bugItem_tv_bugReportedDate"
@@ -85,38 +96,35 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
                     android:layout_toEndOf="@+id/bugItem_iv_classIcon"
-                    android:fontFamily="@font/lato_light"
-                    android:text="Mon Jan 3, 3023" />
+                    android:fontFamily="@font/lato_light" />
 
 
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/bugItem_tv_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/bugItem_classContainer"
-                android:layout_marginTop="15dp"
-                android:background="@color/appColorSecondary"
-                android:fontFamily="@font/lato_bold"
-                android:padding="10dp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:text="PENDING"
-                android:textColor="@color/white" />
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/bugItem_tv_status"
-                android:layout_marginTop="25dp"
+                android:layout_below="@+id/bugItem_classContainer"
+                android:layout_marginTop="40dp"
                 android:id="@+id/bugItem_rl_resolveContainer">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_light"
+                    android:text="Engineering Details"
+                    android:textAllCaps="true"
+                    android:textSize="24sp"
+                    android:textColor="@color/appColorSecondaryVariant"
+                    android:id="@+id/bugItem_tv_engineeringTitle" />
 
                 <LinearLayout
                     android:id="@+id/bugItem_ll_acceptanceContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/bugItem_tv_engineeringTitle"
                     android:baselineAligned="false">
 
                     <TextView
@@ -132,8 +140,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
-                        android:fontFamily="@font/lato_bold"
-                        android:text="Tue May 23, 2023" />
+                        android:fontFamily="@font/lato_bold" />
 
                 </LinearLayout>
 
@@ -159,8 +166,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
-                        android:fontFamily="@font/lato_bold"
-                        android:text="In development" />
+                        android:fontFamily="@font/lato_bold" />
 
                 </LinearLayout>
 
@@ -186,8 +192,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
-                        android:fontFamily="@font/lato_bold"
-                        android:text="Jane Doe" />
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/lato_bold" />
 
                 </LinearLayout>
 
@@ -197,15 +203,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/bugItem_rl_resolveContainer"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/bugItem_rl_descriptionContainer">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato_light"
                     android:text="Issue description"
-                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textSize="24sp"
+                    android:textColor="@color/appColorSecondaryVariant"
                     android:id="@+id/bugItem_tv_descriptionTitle" />
 
                 <TextView
@@ -214,9 +222,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/bugItem_tv_descriptionTitle"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/lato"
-                    android:textSize="16sp"
-                    android:text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                    android:fontFamily="@font/lato_light"
+                    android:textSize="18sp" />
 
             </RelativeLayout>
 
@@ -230,12 +237,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato_light"
                     android:text="Attachments"
-                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textSize="24sp"
+                    android:textColor="@color/appColorSecondaryVariant"
                     android:id="@+id/bugItem_tv_attachmentsTitle" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/bugItems_attachmentList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"

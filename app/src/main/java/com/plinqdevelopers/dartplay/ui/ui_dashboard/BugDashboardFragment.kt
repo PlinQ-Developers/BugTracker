@@ -1,4 +1,4 @@
-package com.plinqdevelopers.dartplay.ui.ui_dashboard
+package com.plinqdevelopers.dartplay.ui.ui_dashboard // ktlint-disable package-name
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +14,8 @@ import com.plinqdevelopers.dartplay.databinding.FragmentBugDashboardBinding
 import com.plinqdevelopers.dartplay.models.local.BugClassification
 import com.plinqdevelopers.dartplay.models.local.BugDTO
 import dagger.hilt.android.AndroidEntryPoint
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 @AndroidEntryPoint
 class BugDashboardFragment : Fragment(), BugListAdapter.BugItemClickedListener {
@@ -77,27 +79,49 @@ class BugDashboardFragment : Fragment(), BugListAdapter.BugItemClickedListener {
             it.bugClassification
         }.eachCount()
 
-        val criticalBugsPercentile = (bugTypesCount[BugClassification.CRITICAL] ?: 0).toFloat() / bugsList.size * 100
-        val minorBugsPercentile = (bugTypesCount[BugClassification.MINOR] ?: 0).toFloat() / bugsList.size * 100
-        val cosmeticBugsPercentile = (bugTypesCount[BugClassification.COSMETIC] ?: 0).toFloat() / bugsList.size * 100
-        val otherBugsPercentile = (bugTypesCount[BugClassification.OTHER] ?: 0).toFloat() / bugsList.size * 100
+        val criticalBugsPercentile = roundDecimalPercentage(
+            (bugTypesCount[BugClassification.CRITICAL] ?: 0).toFloat() / bugsList.size * 100
+        )
+        val minorBugsPercentile = roundDecimalPercentage(
+            (bugTypesCount[BugClassification.MINOR] ?: 0).toFloat() / bugsList.size * 100
+        )
+        val cosmeticBugsPercentile = roundDecimalPercentage(
+            (bugTypesCount[BugClassification.COSMETIC] ?: 0).toFloat() / bugsList.size * 100
+        )
+        val otherBugsPercentile = roundDecimalPercentage(
+            (bugTypesCount[BugClassification.OTHER] ?: 0).toFloat() / bugsList.size * 100
+        )
 
         binding.apply {
             bugDashboardFragmentPbCriticalBugsProgress.progress = criticalBugsPercentile.toInt()
-            bugDashboardFragmentTvCriticalBugValue.text = "$criticalBugsPercentile%"
+            val criticalBugsToString = "$criticalBugsPercentile%"
+            bugDashboardFragmentTvCriticalBugValue.text = criticalBugsToString
 
             bugDashboardFragmentPbMinorBugsProgress.progress = minorBugsPercentile.toInt()
-            bugDashboardFragmentTvMinorBugValue.text = "$minorBugsPercentile%"
+            val minorBugsToString = "$minorBugsPercentile%"
+            bugDashboardFragmentTvMinorBugValue.text = minorBugsToString
 
             bugDashboardFragmentPbCosmeticBugsProgress.progress = cosmeticBugsPercentile.toInt()
-            bugDashboardFragmentTvCosmeticBugValue.text = "$cosmeticBugsPercentile%"
+            val cosmeticBugsToString = "$cosmeticBugsPercentile%"
+            bugDashboardFragmentTvCosmeticBugValue.text = cosmeticBugsToString
 
             bugDashboardFragmentPbOtherBugsProgress.progress = otherBugsPercentile.toInt()
-            bugDashboardFragmentTvOtherBugValue.text = "$otherBugsPercentile%"
+            val otherBugsToString = "$otherBugsPercentile%"
+            bugDashboardFragmentTvOtherBugValue.text = otherBugsToString
         }
     }
 
+    private fun roundDecimalPercentage(number: Float): Double {
+        val df = DecimalFormat("#.##")
+        df.roundingMode = RoundingMode.FLOOR
+        return df.format(number).toDouble()
+    }
+
     override fun onBugItemClicked(bugDTO: BugDTO) {
+        val gotoDetailsAction = BugDashboardFragmentDirections.actionBugDashboardFragmentToBugReportDetailsFragment(
+            bugItemDTO = bugDTO
+        )
+        findNavController().navigate(gotoDetailsAction)
     }
 
     override fun onDestroyView() {

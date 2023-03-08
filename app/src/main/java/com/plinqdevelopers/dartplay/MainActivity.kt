@@ -14,6 +14,7 @@ import com.plinqdevelopers.dartplay.models.local.BugDTO
 import com.plinqdevelopers.dartplay.models.local.BugEngineeringDTO
 import com.plinqdevelopers.dartplay.models.local.BugStatus
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
@@ -48,58 +49,30 @@ class MainActivity : AppCompatActivity() {
         val bugItems = listOf(
             BugDTO(
                 bugTicketID = "BT-" + String.format("%04d", random.nextInt(10000)),
-                bugTitle = "App crashes when opening Settings",
-                bugDescription = "When the user tries to open the app's settings screen, the app crashes unexpectedly.",
-                bugClassification = BugClassification.CRITICAL,
-                bugAttachments = listOf("https://example.com/image1.png", "https://example.com/image2.png"),
+                bugTitle = "Sed ac enim ut sapien molestie finibus. Vestibulum mollis ipsum est, eget fermentum ante faucibus at.",
+                bugDescription = "Nullam finibus mi massa, eu egestas elit pellentesque at. Suspendisse commodo euismod lorem non luctus. Aenean quis nisi a risus aliquam bibendum. Nullam ut convallis mauris, ut euismod ante. Fusce tincidunt nunc lacus, eu eleifend sapien convallis vulputate. Pellentesque sagittis est vel pretium sollicitudin. \n\nProin imperdiet, nibh quis lacinia pulvinar, nisl sapien ultrices nisi, vel mollis velit eros ut tortor. Suspendisse consequat augue eu dui tincidunt porttitor. Integer velit odio, faucibus vitae sodales nec, feugiat nec libero. Duis vehicula dui dolor, ut finibus felis iaculis eget. Sed eu mauris vestibulum, blandit nunc ut, vulputate arcu. Maecenas hendrerit massa non commodo dapibus.",
+                bugClassification = BugClassification.OTHER,
+                bugAttachments = listOf("https://ntrack.com/img/android_bug1.png", "https://ntrack.com/img/android_bug1.png"),
                 bugEngineering = BugEngineeringDTO(
                     engineeringAcceptance = Date().toString(),
                     engineeringStatus = BugStatus.UNDER_DEVELOPMENT,
                     engineeringDeveloper = "John Doe"
                 ),
-                bugSubmittedDate = Date().toString(),
+                bugSubmittedDate = getLocalDate(),
                 bugAccountID = ""
             ),
             BugDTO(
                 bugTicketID = "BT-" + String.format("%04d", random.nextInt(10000)),
-                bugTitle = "Incorrect calculation in checkout process",
-                bugDescription = "When the user selects a certain combination of items in the checkout process, the total price is calculated incorrectly.",
-                bugClassification = BugClassification.MINOR,
-                bugAttachments = listOf("https://example.com/image3.png"),
-                bugEngineering = BugEngineeringDTO(
-                    engineeringAcceptance = Date().toString(),
-                    engineeringStatus = BugStatus.IN_TESTING,
-                    engineeringDeveloper = "Jane Smith"
-                ),
-                bugSubmittedDate = Date().toString(),
-                bugAccountID = ""
-            ),
-            BugDTO(
-                bugTicketID = "BT-" + String.format("%04d", random.nextInt(10000)),
-                bugTitle = "UI glitch on home screen",
-                bugDescription = "When the user scrolls down on the home screen, the header image appears to shift slightly.",
-                bugClassification = BugClassification.COSMETIC,
-                bugAttachments = emptyList(),
-                bugEngineering = BugEngineeringDTO(
-                    engineeringAcceptance = Date().toString(),
-                    engineeringStatus = BugStatus.COMPLETED,
-                    engineeringDeveloper = "Bob Johnson"
-                ),
-                bugSubmittedDate = Date().toString(),
-                bugAccountID = ""
-            ),
-            BugDTO(
-                bugTicketID = "BT-" + String.format("%04d", random.nextInt(10000)),
-                bugTitle = "UI glitch on home screen",
-                bugDescription = "When the user scrolls down on the home screen, the header image appears to shift slightly.",
-                bugClassification = BugClassification.COSMETIC,
-                bugAttachments = emptyList(),
+                bugTitle = "Sed posuere, diam id feugiat accumsan, leo ante volutpat purus, sed malesuada leo eros sit amet massa.",
+                bugDescription = "Nullam finibus mi massa, eu egestas elit pellentesque at. Suspendisse commodo euismod lorem non luctus. Aenean quis nisi a risus aliquam bibendum. Nullam ut convallis mauris, ut euismod ante. Fusce tincidunt nunc lacus, eu eleifend sapien convallis vulputate. Pellentesque sagittis est vel pretium sollicitudin. \n\nProin imperdiet, nibh quis lacinia pulvinar, nisl sapien ultrices nisi, vel mollis velit eros ut tortor. Suspendisse consequat augue eu dui tincidunt porttitor. Integer velit odio, faucibus vitae sodales nec, feugiat nec libero. Duis vehicula dui dolor, ut finibus felis iaculis eget. Sed eu mauris vestibulum, blandit nunc ut, vulputate arcu. Maecenas hendrerit massa non commodo dapibus.",
+                bugClassification = BugClassification.OTHER,
+                bugAttachments = listOf("https://ntrack.com/img/android_bug6.png", "https://ntrack.com/img/android_bug4.png", "https://ntrack.com/img/android_bug6.png"),
                 bugEngineering = BugEngineeringDTO(
                     engineeringAcceptance = Date().toString(),
                     engineeringStatus = BugStatus.UNDER_DEVELOPMENT,
-                    engineeringDeveloper = "Bob Johnson"
+                    engineeringDeveloper = "Samwel John"
                 ),
-                bugSubmittedDate = Date().toString(),
+                bugSubmittedDate = getLocalDate(),
                 bugAccountID = ""
             )
         )
@@ -107,6 +80,12 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             mainActivityViewModel.uploadBugsList(bugItems)
         }
+    }
+
+    private fun getLocalDate(): String {
+        val formatter = SimpleDateFormat("MM-dd-yyyy")
+        val date = formatter.format(Date())
+        return date.toString()
     }
 
     private fun setupNavigation() {

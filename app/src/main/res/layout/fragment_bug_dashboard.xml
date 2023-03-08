@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:indeterminateTint="@color/app_background"/>
 
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -48,10 +47,10 @@
             android:id="@+id/bugDashboardFragment_tv_appName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_black"
             android:text="Bug \nTracker"
             android:textColor="@color/appColorSecondaryVariant"
-            android:textSize="44sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -59,8 +58,8 @@
             android:layout_below="@+id/bugDashboardFragment_tv_appName"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/lato_light"
-            android:text="We are really sorry to learn that you're having some trouble with our app. Report your bug with just a few steps and let our engineers help you out."
-            android:textSize="18sp" />
+            android:text="Don't let bugs ruin your experience, report them with ease using our bug tracking tool. Track, report and resolve issues quickly with our user-friendly bug tracker app"
+            android:textSize="22sp" />
 
     </RelativeLayout>
 

@@ -1,13 +1,16 @@
 package com.plinqdevelopers.dartplay.models.local
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
 @Entity(
     tableName = "bug_items_tbl"
 )
+@Parcelize
 data class BugDTO(
 
     @PrimaryKey(
@@ -42,4 +45,4 @@ data class BugDTO(
 
     @ColumnInfo(name = "bug_item_classificationDTO")
     val bugClassification: BugClassification
-)
+) : Parcelable

@@ -92,9 +92,10 @@ class BugReportsFragment : Fragment(), BugListAdapter.BugItemClickedListener {
     }
 
     override fun onBugItemClicked(bugDTO: BugDTO) {
-        findNavController().navigate(
-            R.id.action_bugReportsFragment_to_bugReportDetailsFragment
+        val gotoDetailsAction = BugReportsFragmentDirections.actionBugReportsFragmentToBugReportDetailsFragment(
+            bugItemDTO = bugDTO
         )
+        findNavController().navigate(gotoDetailsAction)
     }
 
     override fun onDestroyView() {

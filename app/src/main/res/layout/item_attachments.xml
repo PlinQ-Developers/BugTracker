@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/attachmentItem_root"
-    android:layout_width="220dp"
-    android:layout_height="280dp"
+    android:layout_width="150dp"
+    android:layout_height="200dp"
     android:layout_marginEnd="10dp"
+    android:scaleType="centerCrop"
+    android:padding="4dp"
     android:background="@drawable/drawable_stats_bg"/>

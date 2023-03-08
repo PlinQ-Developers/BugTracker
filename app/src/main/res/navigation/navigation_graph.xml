@@ -12,10 +12,25 @@
         tools:layout="@layout/fragment_bug_dashboard" >
         <action
             android:id="@+id/action_bugDashboardFragment_to_createBugFragment"
-            app:destination="@id/createBugFragment" />
+            app:destination="@id/createBugFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_bugDashboardFragment_to_bugReportsFragment"
-            app:destination="@id/bugReportsFragment" />
+            app:destination="@id/bugReportsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_bugDashboardFragment_to_bugReportDetailsFragment"
+            app:destination="@id/bugReportDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/createBugFragment"
@@ -29,11 +44,19 @@
         tools:layout="@layout/fragment_bug_reports" >
         <action
             android:id="@+id/action_bugReportsFragment_to_bugReportDetailsFragment"
-            app:destination="@id/bugReportDetailsFragment" />
+            app:destination="@id/bugReportDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/bugReportDetailsFragment"
         android:name="com.plinqdevelopers.dartplay.ui.ui_report_details.BugReportDetailsFragment"
         android:label="fragment_bug_report_details"
-        tools:layout="@layout/fragment_bug_report_details" />
+        tools:layout="@layout/fragment_bug_report_details" >
+        <argument
+            android:name="bugItemDTO"
+            app:argType="com.plinqdevelopers.dartplay.models.local.BugDTO" />
+    </fragment>
 </navigation>
