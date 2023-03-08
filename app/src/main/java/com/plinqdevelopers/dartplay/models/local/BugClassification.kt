@@ -4,5 +4,6 @@ enum class BugClassification {
     CRITICAL,
     MINOR,
     COSMETIC,
-    OTHER
+    OTHER,
+    NOT_ASSIGNED
 }

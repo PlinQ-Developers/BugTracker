@@ -29,6 +29,7 @@
             android:fontFamily="@font/lato_black"
             android:padding="10dp"
             android:textAllCaps="true"
+            android:textColor="@color/appColorSecondaryVariant"
             android:text="Create Report"
             android:textSize="20sp" />
 
@@ -59,6 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato"
+                    android:textAllCaps="true"
                     android:text="Title" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -77,7 +79,7 @@
                         android:background="@drawable/drawable_stats_bg"
                         android:hint="Give us a name..."
                         android:textSize="18sp"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/lato_bold"
                         android:maxLines="2" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -97,6 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato"
+                    android:textAllCaps="true"
                     android:text="Classification" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -113,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/lato_bold"
                         android:textSize="18sp"
                         android:background="@drawable/drawable_stats_bg"
                         android:hint="Classify your issue"
@@ -136,6 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato"
+                    android:textAllCaps="true"
                     android:text="Bug description" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -155,7 +159,7 @@
                         android:gravity="start"
                         android:inputType="textMultiLine"
                         android:textSize="18sp"
-                        android:fontFamily="@font/lato"
+                        android:fontFamily="@font/lato_bold"
                         android:hint="Can you describe what happened or what you were doing..."
                         android:maxLines="2"
                         android:minLines="10" />

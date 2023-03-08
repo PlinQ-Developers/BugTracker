@@ -68,30 +68,11 @@ class BugReportDetailsFragment : Fragment(), BugAttachmentsAdapter.OnImageItemCl
                 bugItemTvDevName.text = bugItemDTO.bugEngineering.engineeringDeveloper
 
                 when (bugItemDTO.bugClassification) {
-                    BugClassification.CRITICAL -> {
-                        bugItemIvClassIcon.load(R.drawable.ic_bug)
-                        bugItemTvBugName.setTextColor(
-                            ContextCompat.getColor(requireContext(), R.color.bugErrorRed)
-                        )
-                    }
-                    BugClassification.MINOR -> {
-                        bugItemIvClassIcon.load(R.drawable.ic_bug_minor)
-                        bugItemTvBugName.setTextColor(
-                            ContextCompat.getColor(requireContext(), R.color.bugErrorYellow)
-                        )
-                    }
-                    BugClassification.COSMETIC -> {
-                        bugItemIvClassIcon.load(R.drawable.ic_bug_cosmetic)
-                        bugItemTvBugName.setTextColor(
-                            ContextCompat.getColor(requireContext(), R.color.bugErrorBlue)
-                        )
-                    }
-                    BugClassification.OTHER -> {
-                        bugItemIvClassIcon.load(R.drawable.ic_bug_other)
-                        bugItemTvBugName.setTextColor(
-                            ContextCompat.getColor(requireContext(), R.color.bugErrorGreen)
-                        )
-                    }
+                    BugClassification.CRITICAL -> bugItemIvClassIcon.load(R.drawable.ic_bug)
+                    BugClassification.OTHER -> bugItemIvClassIcon.load(R.drawable.ic_bug_other)
+                    BugClassification.MINOR -> bugItemIvClassIcon.load(R.drawable.ic_bug_minor)
+                    BugClassification.COSMETIC -> bugItemIvClassIcon.load(R.drawable.ic_bug_cosmetic)
+                    BugClassification.NOT_ASSIGNED -> bugItemIvClassIcon.load(R.drawable.ic_close_window)
                 }
             }
         } catch (exception: IllegalArgumentException) {

@@ -51,13 +51,14 @@
             android:id="@+id/bugReportDetailsFragment_rl_nestedScrollContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp">
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/bugItem_tv_bugName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_bold"
+                android:textColor="@color/black"
                 android:layout_marginTop="15dp"
                 android:textSize="40sp" />
 

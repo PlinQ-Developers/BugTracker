@@ -38,6 +38,7 @@ class BugListAdapter(
                     BugClassification.CRITICAL -> bugListItemIvBugIcon.load(R.drawable.ic_bug)
                     BugClassification.MINOR -> bugListItemIvBugIcon.load(R.drawable.ic_bug_minor)
                     BugClassification.OTHER -> bugListItemIvBugIcon.load(R.drawable.ic_bug_other)
+                    BugClassification.NOT_ASSIGNED -> bugListItemIvBugIcon.load(R.drawable.ic_close_window)
                 }
             }
         }
