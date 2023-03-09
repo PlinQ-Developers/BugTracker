@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class BugReportDetailsFragment : Fragment(), BugAttachmentsAdapter.OnImageItemClickedListener {
     private var _binding: FragmentBugReportDetailsBinding? = null
-    private val binding get() = _binding ?: throw IllegalArgumentException("")
+    private val binding get() = _binding ?: throw IllegalArgumentException("Error loading view: details")
 
     private val args: BugReportDetailsFragmentArgs by navArgs()
     private val attachmentsAdapter: BugAttachmentsAdapter = BugAttachmentsAdapter(this)

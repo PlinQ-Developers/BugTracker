@@ -17,7 +17,7 @@ data class BugDTO(
         autoGenerate = true
     )
     @ColumnInfo(name = "bug_itemID")
-    val bugID: Int = 0,
+    val bugID: Long = 0,
 
     @ColumnInfo(name = "bug_item_title")
     val bugTitle: String,

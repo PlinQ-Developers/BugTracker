@@ -16,5 +16,13 @@
     <string name="bugReportsFragment_tabItemText_criticalBugs">Critical</string>
     <string name="bugReportsFragment_tabItemText_minorBugs">Minor</string>
     <string name="bugReportsFragment_tabItemText_cosmeticBugs">Cosmetic</string>
-    <string name="bugReportsFragment_tabItemText_otherBugs">Others</string>
+    <string name="bugReportsFragment_tabItemText_otherBugs">Others</string>z
+
+    <string-array name="bugTypeClassification">
+        <item>CRITICAL BUGS</item>
+        <item>MINOR BUGS</item>
+        <item>COSMETIC BUGS</item>
+        <item>OTHER BUGS</item>
+        <item>UNCLASSIFIED</item>
+    </string-array>
 </resources>

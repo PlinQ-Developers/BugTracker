@@ -8,8 +8,17 @@
     android:id="@+id/mainActivity_rl_rootContainer"
     tools:context=".MainActivity">
 
+    <ProgressBar
+        android:id="@+id/mainActivity_pb_loadingStatus"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:indeterminate="true"
+        android:layout_height="wrap_content" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainActivity_cv_host"
+        android:layout_below="@+id/mainActivity_pb_loadingStatus"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

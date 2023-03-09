@@ -9,6 +9,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -22,6 +24,15 @@ object ApplicationModules {
     fun provideRetrofitModule(): Retrofit = Retrofit.Builder()
         .baseUrl(API_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
+        .client(
+            OkHttpClient.Builder()
+                .addInterceptor(
+                    HttpLoggingInterceptor().also {
+                        it.level = HttpLoggingInterceptor.Level.BODY
+                    }
+                )
+                .build()
+        )
         .build()
 
     @Provides
@@ -34,5 +45,5 @@ object ApplicationModules {
         application,
         ApplicationDB::class.java,
         "bugTrackApp.db"
-    ).build()
+    ).fallbackToDestructiveMigration().build()
 }

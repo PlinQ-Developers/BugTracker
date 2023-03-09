@@ -4,25 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import com.plinqdevelopers.dartplay.R
 import com.plinqdevelopers.dartplay.databinding.FragmentCreateBugBinding
 import com.plinqdevelopers.dartplay.models.local.BugClassification
 import com.plinqdevelopers.dartplay.models.local.BugDTO
 import com.plinqdevelopers.dartplay.models.local.BugEngineeringDTO
 import com.plinqdevelopers.dartplay.models.local.BugStatus
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
 class CreateBugFragment : Fragment() {
     private var _binding: FragmentCreateBugBinding? = null
-    private val binding get() = _binding ?: throw IllegalArgumentException("")
+    private val binding get() = _binding ?: throw IllegalArgumentException("Error loading view: create")
 
     private val createBugViewModel: CreateBugViewModel by viewModels()
 
@@ -37,7 +40,18 @@ class CreateBugFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initDropdownMenu()
         initButtons()
+    }
+
+    private fun initDropdownMenu() {
+        val dropdownAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.dropdown_list_item,
+            resources.getStringArray(R.array.bugTypeClassification)
+        )
+
+        binding.createBugFragmentTetBugClass.setAdapter(dropdownAdapter)
     }
 
     private fun initButtons() {
@@ -54,6 +68,8 @@ class CreateBugFragment : Fragment() {
                 val bugTitleInput = binding.createBugFragmentTetBugName.text.toString()
                 val bugDescriptionInput = binding.createBugFragmentTetDescriptionName.text.toString()
                 val bugClassificationInput = binding.createBugFragmentTetBugClass.text.toString()
+
+                Timber.tag("t-logs").d("title: $bugTitleInput \nClassification $bugClassificationInput")
 
                 saveBugToDatabase(
                     bugTitle = bugTitleInput,
@@ -94,7 +110,7 @@ class CreateBugFragment : Fragment() {
         bugClassification: String
     ) {
         val newBugItem = BugDTO(
-            bugAccountID = "",
+            bugAccountID = generateAccountID(),
             bugAttachments = generateImageList(),
             bugTitle = bugTitle,
             bugDescription = bugDescription,
@@ -116,12 +132,12 @@ class CreateBugFragment : Fragment() {
             )
         }
 
-        /**showSuccessSnackBar()
+        showSuccessSnackBar()
         binding.apply {
             createBugFragmentTetBugName.text?.clear()
             createBugFragmentTetDescriptionName.text?.clear()
             createBugFragmentTetBugClass.text?.clear()
-        } */
+        }
     }
 
     private fun getTodayLocalDate(): String {
@@ -135,6 +151,11 @@ class CreateBugFragment : Fragment() {
         return "BT-" + String.format("%04d", random.nextInt(10000))
     }
 
+    private fun generateAccountID(): String {
+        val random = Random()
+        return "ACC-" + String.format("%04d", random.nextInt(10000))
+    }
+
     private fun generateImageList(): List<String> {
         return listOf(
             "https://ntrack.com/img/android_bug6.png",
@@ -145,10 +166,10 @@ class CreateBugFragment : Fragment() {
 
     private fun classifyBugItem(selectedType: String): BugClassification {
         return when (selectedType) {
-            "CRITICAL" -> BugClassification.CRITICAL
-            "MINOR" -> BugClassification.MINOR
-            "COSMETIC" -> BugClassification.COSMETIC
-            "OTHER" -> BugClassification.OTHER
+            "CRITICAL BUGS" -> BugClassification.CRITICAL
+            "MINOR BUGS" -> BugClassification.MINOR
+            "COSMETIC BUGS" -> BugClassification.COSMETIC
+            "OTHER BUGS" -> BugClassification.OTHER
             else -> BugClassification.NOT_ASSIGNED
         }
     }

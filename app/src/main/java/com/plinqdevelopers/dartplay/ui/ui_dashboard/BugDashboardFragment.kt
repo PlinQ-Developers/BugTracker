@@ -20,7 +20,7 @@ import java.text.DecimalFormat
 @AndroidEntryPoint
 class BugDashboardFragment : Fragment(), BugListAdapter.BugItemClickedListener {
     private var _binding: FragmentBugDashboardBinding? = null
-    private val binding get() = _binding ?: throw IllegalArgumentException("")
+    private val binding get() = _binding ?: throw IllegalArgumentException("Error loading view: dashboard")
 
     private val bugDashboardViewModel: BugDashboardViewModel by viewModels()
     private val bugListAdapter: BugListAdapter = BugListAdapter(this)

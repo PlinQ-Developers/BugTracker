@@ -1,10 +1,14 @@
 package com.plinqdevelopers.dartplay
 
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.plinqdevelopers.dartplay.data.network.Resources
 import com.plinqdevelopers.dartplay.models.local.BugDTO
 import com.plinqdevelopers.dartplay.repositories.BugItemsRepoImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -14,7 +18,7 @@ constructor(
     private val itemsRepo: BugItemsRepoImpl
 ) : ViewModel(), LifecycleObserver {
 
-    suspend fun uploadBugsList(bugsList: List<BugDTO>) {
-        itemsRepo.saveBugItems(bugItems = bugsList)
+    fun downloadApplicationData(): LiveData<Resources<List<BugDTO>>> {
+        return itemsRepo.downloadDataAndSync().asLiveData()
     }
 }
