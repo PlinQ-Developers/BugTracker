@@ -26,7 +26,6 @@ import java.util.*
 class CreateBugFragment : Fragment() {
     private var _binding: FragmentCreateBugBinding? = null
     private val binding get() = _binding ?: throw IllegalArgumentException("Error loading view: create")
-
     private val createBugViewModel: CreateBugViewModel by viewModels()
 
     override fun onCreateView(
@@ -69,9 +68,7 @@ class CreateBugFragment : Fragment() {
                 val bugDescriptionInput = binding.createBugFragmentTetDescriptionName.text.toString()
                 val bugClassificationInput = binding.createBugFragmentTetBugClass.text.toString()
 
-                Timber.tag("t-logs").d("title: $bugTitleInput \nClassification $bugClassificationInput")
-
-                saveBugToDatabase(
+                createBugItemDTOList(
                     bugTitle = bugTitleInput,
                     bugDescription = bugDescriptionInput,
                     bugClassification = bugClassificationInput
@@ -104,12 +101,13 @@ class CreateBugFragment : Fragment() {
         }
     }
 
-    private fun saveBugToDatabase(
+    private fun createBugItemDTOList(
         bugTitle: String,
         bugDescription: String,
         bugClassification: String
     ) {
         val newBugItem = BugDTO(
+            bugID = generateUniqueID(),
             bugAccountID = generateAccountID(),
             bugAttachments = generateImageList(),
             bugTitle = bugTitle,
@@ -126,17 +124,20 @@ class CreateBugFragment : Fragment() {
             )
         )
 
-        lifecycleScope.launchWhenCreated {
-            createBugViewModel.saveUploadedBug(
-                bugItem = newBugItem
-            )
-        }
+        saveBugListToDB(bugItem = newBugItem)
+    }
 
-        showSuccessSnackBar()
+    private fun saveBugListToDB(bugItem: BugDTO) {
+        clearFieldsOnSuccess()
+    }
+
+    private fun clearFieldsOnSuccess() {
         binding.apply {
             createBugFragmentTetBugName.text?.clear()
             createBugFragmentTetDescriptionName.text?.clear()
             createBugFragmentTetBugClass.text?.clear()
+
+            showSuccessSnackBar()
         }
     }
 
@@ -159,8 +160,7 @@ class CreateBugFragment : Fragment() {
     private fun generateImageList(): List<String> {
         return listOf(
             "https://ntrack.com/img/android_bug6.png",
-            "https://ntrack.com/img/android_bug7.png",
-            "https://ntrack.com/img/android_bug8.png"
+            "https://ntrack.com/img/android_bug7.png"
         )
     }
 
@@ -172,6 +172,15 @@ class CreateBugFragment : Fragment() {
             "OTHER BUGS" -> BugClassification.OTHER
             else -> BugClassification.NOT_ASSIGNED
         }
+    }
+
+    private fun generateUniqueID(): String {
+        val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        var uniqueString = ""
+        repeat(12) {
+            uniqueString += alphabet.random()
+        }
+        return uniqueString
     }
 
     private fun showSuccessSnackBar() {

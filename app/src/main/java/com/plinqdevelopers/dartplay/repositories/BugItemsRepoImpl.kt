@@ -30,7 +30,6 @@ constructor(
             applicationAPIs.loadNetworkBugList()
         },
         saveFetchedResults = {
-            Timber.tag("t-logs").d("data: $it")
             databaseDAO.updateBugListWithServerResponse(
                 bugItemsList = dtoMapper.mapToDomainList(
                     networkDTOs = it

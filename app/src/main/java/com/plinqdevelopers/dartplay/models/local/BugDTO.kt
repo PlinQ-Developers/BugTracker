@@ -13,11 +13,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class BugDTO(
 
-    @PrimaryKey(
-        autoGenerate = true
-    )
+    @PrimaryKey
     @ColumnInfo(name = "bug_itemID")
-    val bugID: Long = 0,
+    val bugID: String,
 
     @ColumnInfo(name = "bug_item_title")
     val bugTitle: String,

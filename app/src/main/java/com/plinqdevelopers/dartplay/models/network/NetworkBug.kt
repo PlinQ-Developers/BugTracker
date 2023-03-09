@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class NetworkBug(
 
     @SerializedName(value = "bug_item_id")
-    val bugItemID: Long,
+    val bugItemID: String,
 
     @SerializedName(value = "bug_title")
     val bugTitle: String,

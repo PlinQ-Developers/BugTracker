@@ -20,10 +20,9 @@ import java.text.DecimalFormat
 @AndroidEntryPoint
 class BugDashboardFragment : Fragment(), BugListAdapter.BugItemClickedListener {
     private var _binding: FragmentBugDashboardBinding? = null
-    private val binding get() = _binding ?: throw IllegalArgumentException("Error loading view: dashboard")
+    private val binding get() = _binding ?: throw NullPointerException("Error: binding is required!")
 
     private val bugDashboardViewModel: BugDashboardViewModel by viewModels()
-    private val bugListAdapter: BugListAdapter = BugListAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,8 +41,6 @@ class BugDashboardFragment : Fragment(), BugListAdapter.BugItemClickedListener {
         super.onViewCreated(view, savedInstanceState)
         initButtons()
         initListView()
-
-        loadBugItemsList()
     }
 
     private fun initButtons() {
@@ -61,16 +58,19 @@ class BugDashboardFragment : Fragment(), BugListAdapter.BugItemClickedListener {
     }
 
     private fun initListView() {
+        val bugListAdapter = BugListAdapter(this)
         binding.bugDashboardFragmentRvTopBugList.apply {
             adapter = bugListAdapter
             layoutManager = LinearLayoutManager(requireContext())
             hasFixedSize()
         }
+
+        loadBugItemsList(listAdapter = bugListAdapter)
     }
-    private fun loadBugItemsList() {
+    private fun loadBugItemsList(listAdapter: BugListAdapter) {
         bugDashboardViewModel.recentBugItems.observe(requireActivity()) { bugsList ->
-            bugListAdapter.submitList(bugsList.take(3))
-            computeBugAnalytics(bugsList)
+            listAdapter.submitList(bugsList.take(3))
+            computeBugAnalytics(bugsList.reversed())
         }
     }
 
